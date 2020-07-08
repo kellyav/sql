@@ -5,18 +5,18 @@ Started writing queries in SID and CRUD, in GoogleChrome.
 
 ## Databases
 Open in SQLite, or in VS Code with the SQLite extension. 
-- Album:
-- Test:
-- World:
+- Album
+- Test
+- World
 
 ## Scripts (and their purposes)
-- country1.txt
-explores the world.db
+- **country1.txt**
+Explores the world.db, using select, count, goup by, order by, avg, min, sum, distinct, length.
 
-- insert_script.txt
+- **insert_script.txt**
 
 - tablefun_test.txt
-Explores the test.db
+Explores the test.db.
 Practices 13 common SQL Statements. Incldues: joins, cases (case when), insert into, id, create table, alter table, etc. 
 
 ## Resources
