@@ -28,7 +28,7 @@ for the databases to work with.
 *For windows!*
 
 ### Environment
-1. SQLite
+1. SQLite, or VS Code with SQLite extension
 
 ### Plain text editor
 - Notepad++ (to avoid text formatting)
