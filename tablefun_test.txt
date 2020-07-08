@@ -1,5 +1,5 @@
--- 01 CREATE TABLE
-
+-- test.db
+-- New table
 CREATE TABLE test (
   a INTEGER,
   b TEXT
@@ -10,7 +10,7 @@ INSERT INTO test VALUES ( 2, 'b' );
 INSERT INTO test VALUES ( 3, 'c' );
 SELECT * FROM test;
 
--- 02 DROP TABLE
+-- 1. DROP TABLE
 
 CREATE TABLE test ( a TEXT, b TEXT );
 INSERT INTO test VALUES ( 'one', 'two' );
@@ -18,9 +18,8 @@ SELECT * FROM test;
 DROP TABLE test;
 DROP TABLE IF EXISTS test;
 
--- 03 INSERT INTO
--- test.db
-
+-- 2. INSERT INTO -- 
+-- New table
 CREATE TABLE test ( a INTEGER, b TEXT, c TEXT );
 SELECT * FROM test;
 
@@ -29,16 +28,14 @@ INSERT INTO test ( b, c ) VALUES ( 'That', 'Over there!' );
 INSERT INTO test DEFAULT VALUES;
 INSERT INTO test ( a, b, c ) SELECT id, name, description from item;
 
--- 04 DELETE FROM
--- test.db
+-- 3. DELETE FROM
 
 SELECT * FROM test;
 DELETE FROM test WHERE a = 3;
 SELECT * FROM test WHERE a = 1;
 DELETE FROM test WHERE a = 1;
 
--- 05 NULL
--- test.db
+-- 4. NULL
 
 SELECT * FROM test;
 SELECT * FROM test WHERE a = NULL;
@@ -51,76 +48,29 @@ SELECT * FROM test WHERE c = '';
 SELECT * FROM test WHERE c IS NULL;
 
 DROP TABLE test;
-CREATE TABLE test (
-  a INTEGER NOT NULL,
-  b TEXT NOT NULL,
-  c TEXT
-);
 
-INSERT INTO test VALUES ( 1, 'this', 'that' );
-SELECT * FROM test;
 
-INSERT INTO test ( b, c ) VALUES ( 'one', 'two' );
-INSERT INTO test ( a, c ) VALUES ( 1, 'two' );
-INSERT INTO test ( a, b ) VALUES ( 1, 'two' );
-DROP TABLE test;
+- 5. Inserting Data
 
--- 06 Constraints
+SELECT * FROM customer;
+INSERT INTO customer (name, address, city, state, zip) VALUES ('Fred Flintstone', '123 Cobblestone Way', 'Bedrock', 'CA', '91234');
+INSERT INTO customer (name, city, state) VALUES ('Jimi Hendrix', 'Renton', 'WA');
 
-CREATE TABLE test ( a TEXT, b TEXT, c TEXT );
-INSERT INTO test ( a, b ) VALUES ( 'one', 'two' );
-SELECT * FROM test;
+-- 6. Updating Data
+SELECT * FROM customer;
+UPDATE customer SET address = '123 Music Avenue', zip = '98056' WHERE id = 5;
+UPDATE customer SET address = '2603 S Washington St', zip = '98056' WHERE id = 5;
+UPDATE customer SET address = NULL, zip = NULL WHERE id = 5;
 
-CREATE TABLE test ( a TEXT, b TEXT, c TEXT NOT NULL );
-CREATE TABLE test ( a TEXT, b TEXT, c TEXT DEFAULT 'panda' );
-CREATE TABLE test ( a TEXT UNIQUE, b TEXT, c TEXT DEFAULT 'panda' );
-CREATE TABLE test ( a TEXT UNIQUE NOT NULL, b TEXT, c TEXT DEFAULT 'panda' );
+-- 7. Deleting Data
+SELECT * FROM customer WHERE id = 4;
+DELETE FROM customer WHERE id = 4;
+SELECT * FROM customer;
+DELETE FROM customer WHERE id = 5;
+SELECT * FROM customer;
 
--- 07 ALTER TABLE
--- test.db
 
-CREATE TABLE test ( a TEXT, b TEXT, c TEXT );
-INSERT INTO test VALUES ( 'one', 'two', 'three');
-INSERT INTO test VALUES ( 'two', 'three', 'four');
-INSERT INTO test VALUES ( 'three', 'four', 'five');
-SELECT * FROM test;
-
-ALTER TABLE test ADD d TEXT;
-ALTER TABLE test ADD e TEXT DEFAULT 'panda';
-
-DROP TABLE test;
-
--- 08 ID
-
-CREATE TABLE test (
-  id INTEGER PRIMARY KEY,
-  a INTEGER,
-  b TEXT
-);
-INSERT INTO test (a, b) VALUES ( 10, 'a' );
-INSERT INTO test (a, b) VALUES ( 11, 'b' );
-INSERT INTO test (a, b) VALUES ( 12, 'c' );
-SELECT * FROM test;
-
--- 09 WHERE, LIKE, and IN
--- world.db
-
-SELECT * FROM Country;
-SELECT Name, Continent, Population FROM Country WHERE Population < 100000 ORDER BY Population DESC;
-SELECT Name, Continent, Population FROM Country WHERE Population < 100000 OR Population IS NULL ORDER BY Population DESC;
-SELECT Name, Continent, Population FROM Country WHERE Population < 100000 AND Continent = 'Oceania' ORDER BY Population DESC;
-SELECT Name, Continent, Population FROM Country WHERE Name LIKE '%island%' ORDER BY Name;
-SELECT Name, Continent, Population FROM Country WHERE Continent IN ( 'Europe', 'Asia' ) ORDER BY Name;
-
--- 10 SELECT DISTINCT
--- world.db
-
-SELECT Continent FROM Country;
-SELECT DISTINCT Continent FROM Country;
-Using the SELECT DISTINCT statement, you will get only unique results. 
-
--- test.db
-
+-- New table
 CREATE TABLE test ( a int, b int );
 INSERT INTO test VALUES ( 1, 1 );
 INSERT INTO test VALUES ( 2, 1 );
@@ -140,19 +90,61 @@ SELECT DISTINCT a, b FROM test;
 
 DROP TABLE test;
 
--- 11 ORDER BY
--- world.db
+-- New table
+CREATE TABLE test (
+  a INTEGER NOT NULL,
+  b TEXT NOT NULL,
+  c TEXT
+);
 
-SELECT Name FROM Country;
-SELECT Name FROM Country ORDER BY Name;
-SELECT Name FROM Country ORDER BY Name DESC;
-SELECT Name FROM Country ORDER BY Name ASC;
-SELECT Name, Continent FROM Country ORDER BY Continent, Name;
-SELECT Name, Continent, Region FROM Country ORDER BY Continent DESC, Region, Name;
+INSERT INTO test VALUES ( 1, 'this', 'that' );
+SELECT * FROM test;
 
--- 12 CASE
--- test.db
+INSERT INTO test ( b, c ) VALUES ( 'one', 'two' );
+INSERT INTO test ( a, c ) VALUES ( 1, 'two' );
+INSERT INTO test ( a, b ) VALUES ( 1, 'two' );
+DROP TABLE test;
 
+-- 8. Constraints
+-- New table
+CREATE TABLE test ( a TEXT, b TEXT, c TEXT );
+INSERT INTO test ( a, b ) VALUES ( 'one', 'two' );
+SELECT * FROM test;
+
+CREATE TABLE test ( a TEXT, b TEXT, c TEXT NOT NULL );
+CREATE TABLE test ( a TEXT, b TEXT, c TEXT DEFAULT 'panda' );
+CREATE TABLE test ( a TEXT UNIQUE, b TEXT, c TEXT DEFAULT 'panda' );
+CREATE TABLE test ( a TEXT UNIQUE NOT NULL, b TEXT, c TEXT DEFAULT 'panda' );
+
+-- 9. ALTER TABLE
+-- New table
+CREATE TABLE test ( a TEXT, b TEXT, c TEXT );
+INSERT INTO test VALUES ( 'one', 'two', 'three');
+INSERT INTO test VALUES ( 'two', 'three', 'four');
+INSERT INTO test VALUES ( 'three', 'four', 'five');
+SELECT * FROM test;
+
+ALTER TABLE test ADD d TEXT;
+ALTER TABLE test ADD e TEXT DEFAULT 'panda';
+
+DROP TABLE test;
+
+
+-- 10. ID
+-- New table
+CREATE TABLE test (
+  id INTEGER PRIMARY KEY,
+  a INTEGER,
+  b TEXT
+);
+INSERT INTO test (a, b) VALUES ( 10, 'a' );
+INSERT INTO test (a, b) VALUES ( 11, 'b' );
+INSERT INTO test (a, b) VALUES ( 12, 'c' );
+SELECT * FROM test;
+
+
+-- 11. CASE
+-- New table
 CREATE TABLE booltest (a INTEGER, b INTEGER);
 INSERT INTO booltest VALUES (1, 0);
 SELECT * FROM booltest;
@@ -170,3 +162,4 @@ SELECT
 ;
 
 DROP TABLE booltest;
+
