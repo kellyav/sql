@@ -7,5 +7,10 @@ Open is SQLite.
 - Test:
 - World:
 
-## Scripts
--
+## Scripts (and their purposes)
+-country1.txt
+
+- insert_script.txt
+
+- tablefun_test.txt
+
