@@ -8,9 +8,13 @@ Open is SQLite.
 - World:
 
 ## Scripts (and their purposes)
--country1.txt
+- country1.txt
 
 - insert_script.txt
 
 - tablefun_test.txt
 
+## Resources
+Thanks to Bill Weinman // https://bw.org 
+
+for the databases to work with.
