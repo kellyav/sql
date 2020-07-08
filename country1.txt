@@ -7,55 +7,54 @@ SELECT * FROM Country ORDER BY Name;
 SELECT Name, LifeExpectancy FROM Country ORDER BY Name;
 SELECT Name, LifeExpectancy AS "Life Expectancy" FROM Country ORDER BY Name;
 
--- 04 Selecting Rows
--- world.db
-
+-- Selecting Rows
 SELECT Name, Continent, Region FROM Country;
 SELECT Name, Continent, Region FROM Country WHERE Continent = 'Europe';
 SELECT Name, Continent, Region FROM Country WHERE Continent = 'Europe' ORDER BY Name;
 SELECT Name, Continent, Region FROM Country WHERE Continent = 'Europe' ORDER BY Name LIMIT 5;
 SELECT Name, Continent, Region FROM Country WHERE Continent = 'Europe' ORDER BY Name LIMIT 5 OFFSET 5;
 
--- 05 Selecting Columns
--- world.db
-
+-- Selecting Columns
 SELECT * from Country;
 SELECT Name, Continent, Region from Country;
 SELECT Name AS Country, Continent, Region from Country;
 SELECT Name AS Country, Region, Continent from Country;
 
--- 06 Counting Rows
--- world.db
-
+-- Counting Rows
 SELECT COUNT(*) FROM Country;
 SELECT COUNT(*) FROM Country WHERE Population > 1000000;
 SELECT COUNT(*) FROM Country WHERE Population > 100000000;
-SELECT COUNT(*) FROM Country WHERE Population > 100000000 AND Continent = 'Europe' ;
+SELECT COUNT(*) FROM Country WHERE Population > 100000000 AND Continent = 'Europe';
 
 SELECT COUNT(*) FROM Country;
 SELECT COUNT(LifeExpectancy) FROM Country;
 
--- 07 Inserting Data
--- test.db
 
-SELECT * FROM customer;
-INSERT INTO customer (name, address, city, state, zip) VALUES ('Fred Flintstone', '123 Cobblestone Way', 'Bedrock', 'CA', '91234');
-INSERT INTO customer (name, city, state) VALUES ('Jimi Hendrix', 'Renton', 'WA');
+-- Aggregate Data
+SELECT COUNT(*) FROM Country;
 
--- 08 Updating Data
--- test.db
+SELECT Region, COUNT(*)
+  FROM Country
+  GROUP BY Region;
 
-SELECT * FROM customer;
-UPDATE customer SET address = '123 Music Avenue', zip = '98056' WHERE id = 5;
-UPDATE customer SET address = '2603 S Washington St', zip = '98056' WHERE id = 5;
-UPDATE customer SET address = NULL, zip = NULL WHERE id = 5;
+SELECT Region, COUNT(*) AS Count
+  FROM Country
+  GROUP BY Region
+  ORDER BY Count DESC, Region;
 
--- 09 Deleting Data
--- test.db
+-- Aggregate function
+SELECT COUNT(*) FROM Country;
+SELECT COUNT(Population) FROM Country;
+SELECT AVG(Population) FROM Country;
+SELECT Region, AVG(Population) FROM Country GROUP BY Region;
+SELECT Region, MIN(Population), MAX(Population) FROM Country GROUP BY Region;
+SELECT Region, SUM(Population) FROM Country GROUP BY Region;
 
-SELECT * FROM customer WHERE id = 4;
-DELETE FROM customer WHERE id = 4;
-SELECT * FROM customer;
-DELETE FROM customer WHERE id = 5;
-SELECT * FROM customer;
+-- DISTINCT Aggregates
+SELECT COUNT(HeadOfState) FROM Country;
+SELECT HeadOfState FROM Country ORDER BY HeadOfState;
+SELECT COUNT(DISTINCT HeadOfState) FROM Country;
 
+-- LENGTH
+SELECT LENGTH('string');
+SELECT Name, LENGTH(Name) AS Len FROM City ORDER BY Len DESC;
