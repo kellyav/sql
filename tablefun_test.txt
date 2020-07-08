@@ -10,6 +10,7 @@ INSERT INTO test VALUES ( 2, 'b' );
 INSERT INTO test VALUES ( 3, 'c' );
 SELECT * FROM test;
 
+
 -- 1. DROP TABLE
 
 CREATE TABLE test ( a TEXT, b TEXT );
@@ -17,6 +18,7 @@ INSERT INTO test VALUES ( 'one', 'two' );
 SELECT * FROM test;
 DROP TABLE test;
 DROP TABLE IF EXISTS test;
+
 
 -- 2. INSERT INTO -- 
 -- New table
@@ -28,6 +30,7 @@ INSERT INTO test ( b, c ) VALUES ( 'That', 'Over there!' );
 INSERT INTO test DEFAULT VALUES;
 INSERT INTO test ( a, b, c ) SELECT id, name, description from item;
 
+
 -- 3. DELETE FROM
 
 SELECT * FROM test;
@@ -35,7 +38,8 @@ DELETE FROM test WHERE a = 3;
 SELECT * FROM test WHERE a = 1;
 DELETE FROM test WHERE a = 1;
 
--- 4. NULL
+
+--4. NULL
 
 SELECT * FROM test;
 SELECT * FROM test WHERE a = NULL;
@@ -56,19 +60,22 @@ SELECT * FROM customer;
 INSERT INTO customer (name, address, city, state, zip) VALUES ('Fred Flintstone', '123 Cobblestone Way', 'Bedrock', 'CA', '91234');
 INSERT INTO customer (name, city, state) VALUES ('Jimi Hendrix', 'Renton', 'WA');
 
+
 -- 6. Updating Data
+
 SELECT * FROM customer;
 UPDATE customer SET address = '123 Music Avenue', zip = '98056' WHERE id = 5;
 UPDATE customer SET address = '2603 S Washington St', zip = '98056' WHERE id = 5;
 UPDATE customer SET address = NULL, zip = NULL WHERE id = 5;
 
+
 -- 7. Deleting Data
+
 SELECT * FROM customer WHERE id = 4;
 DELETE FROM customer WHERE id = 4;
 SELECT * FROM customer;
 DELETE FROM customer WHERE id = 5;
 SELECT * FROM customer;
-
 
 -- New table
 CREATE TABLE test ( a int, b int );
@@ -105,6 +112,7 @@ INSERT INTO test ( a, c ) VALUES ( 1, 'two' );
 INSERT INTO test ( a, b ) VALUES ( 1, 'two' );
 DROP TABLE test;
 
+
 -- 8. Constraints
 -- New table
 CREATE TABLE test ( a TEXT, b TEXT, c TEXT );
@@ -115,6 +123,7 @@ CREATE TABLE test ( a TEXT, b TEXT, c TEXT NOT NULL );
 CREATE TABLE test ( a TEXT, b TEXT, c TEXT DEFAULT 'panda' );
 CREATE TABLE test ( a TEXT UNIQUE, b TEXT, c TEXT DEFAULT 'panda' );
 CREATE TABLE test ( a TEXT UNIQUE NOT NULL, b TEXT, c TEXT DEFAULT 'panda' );
+
 
 -- 9. ALTER TABLE
 -- New table
@@ -215,6 +224,7 @@ SELECT s.id AS sale, s.date, i.name, i.description, s.price
   FROM sale AS s
   JOIN item AS i ON s.item_id = i.id
   ;
+
 
 -- 13. Junction Table
 
