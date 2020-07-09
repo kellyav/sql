@@ -17,7 +17,7 @@ Explores the world.db, using select, count, goup by, order by, avg, min, sum, di
 - **tablefun_test.txt**
 
 Explores the test.db.
-Practices 13 common SQL Statements. Incldues: joins, cases (case when), insert into, id, create table, alter table, etc. 
+Practices 13 common SQL Statements. Includes: joins, cases (case when), insert into, id, create table, alter table, etc. 
 
 ## Resources
 Thanks to Bill Weinman // https://bw.org 
