@@ -34,17 +34,7 @@ FROM countries_plus AS c
     ON c.code= p.country_code  
 ORDER BY geosize_group;
 
-
-
---which countries had high average life expectancies (at the country level) in 2015.
-SELECT *
-  FROM populations
-WHERE life_expectancy >
-  -- 1.15 * subquery
-  1.15 * (SELECT AVG(life_expectancy)
-   		FROM populations
-   		WHERE year = 2015) AND
-  	year = 2015;
+   
     
     
 /* determining the top 10 capital cities in Europe and the Americas 
