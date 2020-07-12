@@ -14,6 +14,7 @@ FROM populations AS p1
 -- note: growth_perc calculates the percentage population growth from 2010 to 2015 for each country
 
 
+
 -- the relationship between the size of a country in terms of surface area and in terms of population:
 SELECT country_code, size,
   CASE WHEN size > 50000000
@@ -25,6 +26,14 @@ SELECT country_code, size,
 INTO pop_plus       
 FROM populations
 WHERE year = 2015;
+
+SELECT name, continent, geosize_group, popsize_group
+FROM countries_plus AS c
+  INNER JOIN pop_plus as p
+    -- Match on country code
+    ON c.code= p.country_code  
+ORDER BY geosize_group;
+
 
 
 --which countries had high average life expectancies (at the country level) in 2015.
