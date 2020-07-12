@@ -39,7 +39,7 @@ WHERE life_expectancy >
     
     
 /* determining the top 10 capital cities in Europe and the Americas 
-in terms of a calculated percentage using city_proper_pop and metroarea_pop in cities. *\
+in terms of a calculated percentage using city_proper_pop and metroarea_pop in cities. */
 SELECT 
 	name, 
 	country_code, 
