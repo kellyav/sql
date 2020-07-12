@@ -1,20 +1,14 @@
 %%sql
 
-/* people database
-
-lets get a feel for the database */
+/* world database
+lets get a feel for the people table */
 
 
 -- see the database
 SELECT * from people;
 
-
--- the database itself:
-SELECT COUNT(*) FROM people
-
-
 --count the number of non-missing values in the people column
-SELECT COUNT(*) FROM people
+SELECT COUNT(*) FROM people;
 
 --Get the names of people who are still alive
 SELECT name
@@ -36,7 +30,7 @@ SELECT name
 FROM people
 WHERE name NOT LIKE 'A%';
 
--- percentage of people who are no longer alive
+-- Percentage of people who are no longer alive
 SELECT COUNT(deathdate)*100.0 /COUNT(*) AS percentage_dead
 FROM people;
 
