@@ -14,6 +14,19 @@ FROM populations AS p1
 -- note: growth_perc calculates the percentage population growth from 2010 to 2015 for each country
 
 
+-- the relationship between the size of a country in terms of surface area and in terms of population:
+SELECT country_code, size,
+  CASE WHEN size > 50000000
+            THEN 'large'
+       WHEN size > 1000000
+            THEN 'medium'
+       ELSE 'small' END
+       AS popsize_group
+INTO pop_plus       
+FROM populations
+WHERE year = 2015;
+
+
 --which countries had high average life expectancies (at the country level) in 2015.
 SELECT *
   FROM populations
@@ -25,7 +38,8 @@ WHERE life_expectancy >
   	year = 2015;
     
     
---determining the top 10 capital cities in Europe and the Americas in terms of a calculated percentage using city_proper_pop and metroarea_pop in cities.
+/* determining the top 10 capital cities in Europe and the Americas 
+in terms of a calculated percentage using city_proper_pop and metroarea_pop in cities. *\
 SELECT 
 	name, 
 	country_code, 
