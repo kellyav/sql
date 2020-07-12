@@ -20,6 +20,7 @@ Explores the test.db.
 Practices 13 common SQL Statements. Includes: joins, cases (case when), insert into, id, create table, alter table, etc. 
 
 - **av_goals.sql**
+
 Uses nested subqueries to answer the question: How does each months total goals differ from the average monthly total goals scored?
 
 ## Resources
