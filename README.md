@@ -19,7 +19,7 @@ Explores the world.db, using select, count, goup by, order by, avg, min, sum, di
 Explores the test.db.
 Practices 13 common SQL Statements. Includes: joins, cases (case when), insert into, id, create table, alter table, etc. 
 
-- **avg_goals.sql**
+- **avg_goals.sql** (match table)
 
 Uses nested subqueries to answer the question: How does each months total goals differ from the average monthly total goals scored?
 
