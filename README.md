@@ -3,7 +3,6 @@ Various SQL scripting projects and practice.
 
 ## Databases
 Open in SQLite, or in VS Code with the SQLite extension. 
-- Album
 - Test
 - World
 - People
