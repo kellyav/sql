@@ -14,14 +14,13 @@ SELECT
 			GROUP BY month) ) AS avg_diff
 FROM match as m
 GROUP BY month;
--- Returns 
 
 --Breakdown: (Subquery first)
 (SELECT 
 	EXTRACT(MONTH FROM date) AS month,
 	SUM(home_goal + away_goal) AS goals
 FROM match
-GROUP BY month)
+GROUP BY month);
 /* logic: first, select the sum of goals scored in each month. Month is taken from date.
 Returns: two columns in a table, first is month (1-12), second is goals. */
 
@@ -32,7 +31,7 @@ FROM (SELECT
 		EXTRACT(MONTH FROM date) AS month,
 		SUM(home_goal + away_goal) AS goals
 	FROM match
-	GROUP BY month) ) AS avg_diff
+	GROUP BY month) ) AS avg_diff ;
 /* this section calculates an average of the values generated in the previous table.
 Returns: 2944.75, which is the average monthly goals scored. 
 
