@@ -19,7 +19,8 @@ Practices 13 common SQL Statements. Includes: joins, cases (case when), insert i
 - **people_analysis.sql** (in the world_db folder, people table)
 
 Answers questions about the people table such as:
-Get the names of people whose names have 'r' as the second letter, and The percentage of people who are no longer alive.
+Get the names of people whose names have 'r' as the second letter, 
+and the percentage of people who are no longer alive.
 
 ## Resources
 Thanks to 
