@@ -24,7 +24,6 @@ Get the names of people whose names have 'r' as the second letter, and The perce
 ## Resources
 Thanks to 
 - Bill Weinman // https://bw.org for some of the databases (test and world) to work with.
-- Chester Ismay // https://www.linkedin.com/in/chesterismay/ for the Countries, Leaders, and Diagrams databasets.
 
 ## Requirements
 *For windows!*
