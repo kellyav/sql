@@ -5,8 +5,6 @@ Various SQL scripting projects and practice.
 Open in SQLite, or in VS Code with the SQLite extension. 
 - Test
 - World
-- People
-- Match (db itself not included here, but files worked with it are)
 
 ## Scripts (and their purposes)
 - **country1.sql** (in the world_db folder)
@@ -18,7 +16,7 @@ Explores the world.db, using select, count, goup by, order by, avg, min, sum, di
 Explores the test.db.
 Practices 13 common SQL Statements. Includes: joins, cases (case when), insert into, id, create table, alter table, etc. 
 
-- **people_analysis.sql** (in the world_db folder)
+- **people_analysis.sql** (in the world_db folder, people table)
 
 Answers questions about the people table such as:
 Get the names of people whose names have 'r' as the second letter, and The percentage of people who are no longer alive.
